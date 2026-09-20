@@ -39,6 +39,19 @@ export const whatsappHref = (text?: string) => {
   return text ? `${url}?text=${encodeURIComponent(text)}` : url
 }
 
+export const developerConfig = {
+  name: 'ZicoLap',
+  whatsapp: '+49 159 06300098',
+  whatsappNumber: '4915906300098',
+  github: 'ZicoLap',
+  githubUrl: 'https://github.com/ZicoLap',
+} as const
+
+export const developerWhatsappHref = (text?: string) => {
+  const url = `https://wa.me/${developerConfig.whatsappNumber}`
+  return text ? `${url}?text=${encodeURIComponent(text)}` : url
+}
+
 export const socialProfiles = [
   { id: 'instagram', href: salonConfig.instagramUrl, label: { ar: 'إنستغرام', en: 'Instagram' } },
   { id: 'tiktok', href: salonConfig.tiktokUrl, label: { ar: 'تيك توك', en: 'TikTok' } },
@@ -103,8 +116,44 @@ export const copy = {
     gallery: { eyebrow: 'تفاصيل تصنع الفرق', title: 'من أعمالنا', body: 'ضفائر، تصفيف وأعمال حقيقية من كرسي F & M.', open: 'فتح الصورة', close: 'إغلاق معرض الصور', previous: 'الصورة السابقة', next: 'الصورة التالية' },
     bookingSection: { eyebrow: 'تواصلي معنا', title: 'واتساب والبريد', body: 'تواصلي معنا مباشرة عبر واتساب أو البريد الإلكتروني. نرد عليكِ لتأكيد الموعد والتفاصيل.', whatsappLabel: 'واتساب', emailLabel: 'البريد الإلكتروني', submit: 'إرسال الطلب عبر واتساب', messageIntro: 'مرحباً F & M، أرغب في حجز موعد.' },
     contact: { eyebrow: 'القاهرة الجديدة', title: 'زورينا في F & M', locationLabel: 'الموقع', hoursLabel: 'مواعيد العمل', contactLabel: 'التواصل', maps: 'فتح خرائط Google', whatsapp: 'واتساب', instagram: 'إنستغرام', tiktok: 'تيك توك', facebook: 'فيسبوك', email: 'البريد' },
-    footer: { description: 'صالون تجميل ومستحضرات في القاهرة الجديدة للشعر، المكياج والعناية باحتراف واهتمام بالتفاصيل.', privacy: 'الخصوصية', rights: 'جميع الحقوق محفوظة.' },
+    footer: { description: 'صالون تجميل ومستحضرات في القاهرة الجديدة للشعر، المكياج والعناية باحتراف واهتمام بالتفاصيل.', privacy: 'الخصوصية', rights: 'جميع الحقوق محفوظة.', credit: 'الموقع من تطوير' },
     shop: { nav: 'المتجر', eyebrow: 'متجر F & M', title: 'منتجات العناية والتجميل', body: 'اختاري المنتج، وتواصلي معنا عبر واتساب لمعرفة السعر والتوفر.', cta: 'العودة إلى الرئيسية', askPrice: 'اسألي عن السعر عبر واتساب', priceNote: 'الأسعار عبر واتساب', whatsappMessage: 'مرحباً F & M، أرغب في معرفة سعر هذا المنتج:', metadata: { title: 'المتجر | F & M Home of Beauty', description: 'تسوّقي منتجات العناية والتجميل من F & M Home of Beauty واسألي عن السعر عبر واتساب.' } },
+    developer: {
+      eyebrow: 'المطوّر والبرمجة',
+      title: 'برمج حلولك الرقمية، ودع عملك ينمو أونلاين',
+      body: 'أنا ZicoLap. أبرمج وأبني مواقع وتطبيقات وأنظمة للأعمال التي تريد حضوراً قوياً على الإنترنت. من فكرة بسيطة إلى منتج جاهز للعملاء، أساعدك على البيع، الحجز، والتنظيم دون تعقيد.',
+      pitch: 'سواء كان لديك صالون، متجر، مكتب خدمات، أو مشروع ناشئ — إذا كنت تحتاج موقعاً، تطبيقاً، نظام حجوزات، لوحة إدارة، أو أي حل برمجي لعملك، راسلني الآن على واتساب وابدأ خلال دقائق.',
+      offerTitle: 'ماذا أبني لك؟',
+      services: [
+        { title: 'مواقع احترافية', body: 'مواقع سريعة وجذابة للعلامات والشركات، مع واتساب، خرائط، ومتجر أو قائمة خدمات.' },
+        { title: 'تطبيقات ويب وموبايل', body: 'تطبيقات عملية لعملائك أو لفريقك: طلبات، حجوزات، متابعة، وتنبيهات.' },
+        { title: 'برمجة وأنظمة أعمال', body: 'أنظمة مخصصة للحجوزات، المخزون، العملاء، الفواتير، ولوحات الإدارة.' },
+        { title: 'متاجر وحضور أونلاين', body: 'متاجر إلكترونية، صفحات منتجات، وروابط دفع أو تواصل مباشر لزيادة المبيعات.' },
+        { title: 'أتمتة وتحسين', body: 'ربط واتساب، النماذج، الإشعارات، والتقارير لتوفير الوقت وتقليل الأخطاء.' },
+        { title: 'صيانة وتطوير مستمر', body: 'تحديثات، إصلاحات، وتحسينات بعد الإطلاق حتى يبقى نظامك سريعاً وآمناً.' },
+      ],
+      audienceTitle: 'لمن هذا؟',
+      audience: [
+        'أصحاب الأعمال الذين يريدون موقعاً يبدو احترافياً ويجلب عملاء',
+        'من يحتاج نظام حجوزات أو إدارة بدل الورق والإكسيل',
+        'المتاجر والعلامات التي تريد البيع والتواصل أونلاين',
+        'أي مشروع يحتاج برمجة مخصصة بدون تعقيد تقني',
+      ],
+      processTitle: 'كيف نبدأ؟',
+      process: [
+        { title: 'راسلني على واتساب', body: 'اكتب فكرتك أو مشكلتك في رسالة قصيرة.' },
+        { title: 'نحدد الحل والسعر', body: 'أقترح أفضل خيار لعملك مع نطاق واضح وتكلفة شفافة.' },
+        { title: 'نبني ونطلق', body: 'أبرمج، أختبر، وأسلّم حلاً جاهزاً للاستخدام مع دعم بعد الإطلاق.' },
+      ],
+      closeTitle: 'جاهز تبدأ؟',
+      closeBody: 'لا تحتاج خطة طويلة. أرسل رسالة واحدة الآن، وسأساعدك على تحويل فكرتك إلى موقع أو تطبيق أو نظام يخدم عملك.',
+      cta: 'تواصل عبر واتساب الآن',
+      secondaryCta: 'عرض أعمالي على GitHub',
+      github: 'GitHub',
+      back: 'العودة إلى الصالون',
+      whatsappMessage: 'مرحباً ZicoLap، أرغب في التحدث عن برمجة موقع أو تطبيق أو نظام لعملي.',
+      metadata: { title: 'المطوّر | ZicoLap — مواقع وتطبيقات وبرمجة للأعمال', description: 'ZicoLap يبرمج مواقع وتطبيقات وأنظمة ومتاجر أونلاين للأعمال. تواصل عبر واتساب لبدء مشروعك.' },
+    },
     metadata: { title: 'F & M Home of Beauty | صالون تجميل ومستحضرات في القاهرة الجديدة', description: 'قصات، صبغات، مكياج وعناية في التجمع الخامس. اكتشفي F & M Home of Beauty واحجزي استشارتكِ عبر واتساب.' },
   },
   en: {
@@ -117,8 +166,44 @@ export const copy = {
     gallery: { eyebrow: 'The details matter', title: 'Selected work', body: 'Braids, styling and real looks from the F & M chair.', open: 'Open image', close: 'Close gallery', previous: 'Previous image', next: 'Next image' },
     bookingSection: { eyebrow: 'Get in touch', title: 'WhatsApp and email', body: 'Message us on WhatsApp or email. We will reply to confirm your time and details.', whatsappLabel: 'WhatsApp', emailLabel: 'Email', submit: 'Send request via WhatsApp', messageIntro: 'Hello F & M, I would like to book an appointment.' },
     contact: { eyebrow: 'New Cairo', title: 'Visit F & M', locationLabel: 'Location', hoursLabel: 'Opening hours', contactLabel: 'Contact', maps: 'Open in Google Maps', whatsapp: 'WhatsApp', instagram: 'Instagram', tiktok: 'TikTok', facebook: 'Facebook', email: 'Email' },
-    footer: { description: 'A New Cairo home for thoughtful cuts, makeup, cosmetics and professional beauty care.', privacy: 'Privacy', rights: 'All rights reserved.' },
+    footer: { description: 'A New Cairo home for thoughtful cuts, makeup, cosmetics and professional beauty care.', privacy: 'Privacy', rights: 'All rights reserved.', credit: 'Website by' },
     shop: { nav: 'Shop', eyebrow: 'F & M shop', title: 'Beauty products', body: 'Browse the collection, then message us on WhatsApp for price and availability.', cta: 'Back to the salon', askPrice: 'Ask price on WhatsApp', priceNote: 'Price via WhatsApp', whatsappMessage: 'Hello F & M, I would like the price for this product:', metadata: { title: 'Shop | F & M Home of Beauty', description: 'Shop beauty and hair-care products at F & M Home of Beauty. Message us on WhatsApp for pricing.' } },
+    developer: {
+      eyebrow: 'Developer & programming',
+      title: 'Code your digital presence. Grow your business online.',
+      body: 'I am ZicoLap. I program and build websites, apps and business systems for people who want a strong online presence. From a simple idea to a product your customers can use, I help you sell, book and organise without the tech stress.',
+      pitch: 'Whether you run a salon, shop, service office or startup — if you need a website, app, booking system, admin dashboard or any custom software for your business, message me on WhatsApp now and start in minutes.',
+      offerTitle: 'What I build for you',
+      services: [
+        { title: 'Professional websites', body: 'Fast, branded sites with WhatsApp, maps, services menus or a shop — ready to convert visitors.' },
+        { title: 'Web & mobile apps', body: 'Practical apps for customers or your team: orders, bookings, tracking and alerts.' },
+        { title: 'Custom programming & systems', body: 'Booking, inventory, CRM, invoices and admin panels built around how your business works.' },
+        { title: 'Online shops & presence', body: 'Product pages, catalogues and clear contact paths so people can buy or enquire online.' },
+        { title: 'Automation & integrations', body: 'WhatsApp flows, forms, notifications and reports that save time and cut mistakes.' },
+        { title: 'Ongoing support', body: 'Updates, fixes and improvements after launch so your system stays fast and reliable.' },
+      ],
+      audienceTitle: 'Who this is for',
+      audience: [
+        'Business owners who need a site that looks professional and brings clients',
+        'Teams who want booking or management systems instead of paper and spreadsheets',
+        'Shops and brands ready to sell and communicate online',
+        'Anyone who needs custom programming without the technical headache',
+      ],
+      processTitle: 'How we start',
+      process: [
+        { title: 'Message me on WhatsApp', body: 'Send a short note about your idea or the problem you want solved.' },
+        { title: 'We agree the plan and price', body: 'I propose the right solution with a clear scope and transparent cost.' },
+        { title: 'I build and launch', body: 'I program, test and deliver a ready-to-use solution, with support after go-live.' },
+      ],
+      closeTitle: 'Ready to start?',
+      closeBody: 'You do not need a long plan. Send one message now and I will help turn your idea into a website, app or system that works for your business.',
+      cta: 'Message on WhatsApp now',
+      secondaryCta: 'See my work on GitHub',
+      github: 'GitHub',
+      back: 'Back to the salon',
+      whatsappMessage: 'Hello ZicoLap, I would like to talk about programming a website, app or system for my business.',
+      metadata: { title: 'Developer | ZicoLap — websites, apps & programming for business', description: 'ZicoLap programs websites, apps, systems and online shops for businesses. Message on WhatsApp to start your project.' },
+    },
     metadata: { title: 'F & M Home of Beauty | Salon and Cosmetics in New Cairo', description: 'Cuts, colour, makeup and cosmetics in Fifth Settlement, New Cairo. Explore F & M Home of Beauty and request your appointment through WhatsApp.' },
   },
 } as const

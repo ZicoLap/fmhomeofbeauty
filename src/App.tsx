@@ -3,7 +3,7 @@ import type { CSSProperties, SyntheticEvent } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
 import { ArrowIcon, ClockIcon, CloseIcon, FacebookIcon, HouseIcon, InstagramIcon, LocationIcon, MailIcon, MenuIcon, PhoneIcon, ServiceGlyph, SparkleIcon, TikTokIcon } from './components/Icons'
-import { copy, galleryItems, navigation, salonConfig, services, shopProducts, socialProfiles, whatsappHref, type Language, type ServiceIcon } from './content/salonConfig'
+import { copy, developerConfig, developerWhatsappHref, galleryItems, navigation, salonConfig, services, shopProducts, socialProfiles, whatsappHref, type Language, type ServiceIcon } from './content/salonConfig'
 import './App.css'
 
 const local = <T extends Record<Language, string>>(value: T, language: Language): string => value[language]
@@ -97,7 +97,7 @@ function Header({ language, onLanguage, onMenuChange, solid = false }: HeaderPro
                 {local(item.label, language)}
               </Link>
             ))}
-            <Link className={!onHome ? 'is-active' : ''} aria-current={!onHome ? 'page' : undefined} to="/shop" onClick={close}>{t.shop.nav}</Link>
+            <Link className={location.pathname === '/shop' ? 'is-active' : ''} aria-current={location.pathname === '/shop' ? 'page' : undefined} to="/shop" onClick={close}>{t.shop.nav}</Link>
           </div>
           <Link className="button button-small mobile-book" to={{ pathname: '/', hash: '#booking' }} onClick={close}>{t.booking}</Link>
         </nav>
@@ -320,7 +320,127 @@ function Contact({ language }: { language: Language }) {
 
 function Footer({ language, onLanguage }: { language: Language; onLanguage: () => void }) {
   const t = copy[language]
-  return <footer className="footer"><div className="shell"><div className="footer-top"><div><Link className="wordmark footer-mark" to="/">{salonConfig.wordmark}<span>{local(salonConfig.tagline, language)}</span></Link><p>{t.footer.description}</p><SocialList language={language} /></div><div className="footer-nav"><h3>{language === 'ar' ? 'استكشفي' : 'Explore'}</h3>{navigation.map(item => <Link key={item.id} to={{ pathname: '/', hash: `#${item.id}` }}>{local(item.label, language)}</Link>)}<Link to="/shop">{t.shop.nav}</Link></div><div className="footer-contact"><h3>{t.contact.contactLabel}</h3><a href={whatsappHref()} dir="ltr" target="_blank" rel="noreferrer">{salonConfig.whatsapp}</a><a href={salonConfig.emailHref} dir="ltr">{salonConfig.email}</a><p>{local(salonConfig.hours.weekdays, language)}<br />{local(salonConfig.hours.friday, language)}</p></div><a className="button button-light footer-book" href={whatsappHref(t.bookingSection.messageIntro)} target="_blank" rel="noreferrer">{t.booking}<ArrowIcon /></a></div><div className="footer-bottom"><p>© {new Date().getFullYear()} {salonConfig.wordmark}. {t.footer.rights}</p><div><a href="#privacy">{t.footer.privacy}</a><button type="button" onClick={onLanguage}>{t.language}</button></div></div></div></footer>
+  return (
+    <footer className="footer">
+      <div className="shell">
+        <div className="footer-top">
+          <div>
+            <Link className="wordmark footer-mark" to="/">{salonConfig.wordmark}<span>{local(salonConfig.tagline, language)}</span></Link>
+            <p>{t.footer.description}</p>
+            <SocialList language={language} />
+          </div>
+          <div className="footer-nav">
+            <h3>{language === 'ar' ? 'استكشفي' : 'Explore'}</h3>
+            {navigation.map(item => <Link key={item.id} to={{ pathname: '/', hash: `#${item.id}` }}>{local(item.label, language)}</Link>)}
+            <Link to="/shop">{t.shop.nav}</Link>
+          </div>
+          <div className="footer-contact">
+            <h3>{t.contact.contactLabel}</h3>
+            <a href={whatsappHref()} dir="ltr" target="_blank" rel="noreferrer">{salonConfig.whatsapp}</a>
+            <a href={salonConfig.emailHref} dir="ltr">{salonConfig.email}</a>
+            <p>{local(salonConfig.hours.weekdays, language)}<br />{local(salonConfig.hours.friday, language)}</p>
+          </div>
+          <a className="button button-light footer-book" href={whatsappHref(t.bookingSection.messageIntro)} target="_blank" rel="noreferrer">{t.booking}<ArrowIcon /></a>
+        </div>
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} {salonConfig.wordmark}. {t.footer.rights}</p>
+          <div>
+            <Link className="footer-credit" to="/developer">{t.footer.credit} {developerConfig.name}</Link>
+            <a href="#privacy">{t.footer.privacy}</a>
+            <button type="button" onClick={onLanguage}>{t.language}</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+function DeveloperPage({ language, onLanguage }: { language: Language; onLanguage: () => void }) {
+  const t = copy[language].developer
+  const whatsappLink = developerWhatsappHref(t.whatsappMessage)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  return (
+    <>
+      <a className="skip-link" href="#main">{copy[language].skip}</a>
+      <Header language={language} onLanguage={onLanguage} onMenuChange={() => undefined} solid />
+      <main id="main" className="developer-page">
+        <section className="developer-hero" aria-labelledby="developer-title">
+          <div className="shell developer-hero-inner">
+            <p className="eyebrow">{t.eyebrow}</p>
+            <p className="developer-name">{developerConfig.name}</p>
+            <h1 id="developer-title">{t.title}</h1>
+            <p className="large-copy">{t.body}</p>
+            <p className="developer-pitch">{t.pitch}</p>
+            <div className="shop-actions">
+              <a className="button" href={whatsappLink} target="_blank" rel="noreferrer">{t.cta}<ArrowIcon /></a>
+              <a className="text-link light" href={developerConfig.githubUrl} target="_blank" rel="noreferrer">{t.secondaryCta}</a>
+            </div>
+            <p className="developer-phone" dir="ltr">{developerConfig.whatsapp}</p>
+          </div>
+        </section>
+
+        <section className="developer-section" aria-labelledby="developer-offer">
+          <div className="shell">
+            <p className="eyebrow">{t.offerTitle}</p>
+            <h2 id="developer-offer">{t.offerTitle}</h2>
+            <div className="developer-offer-grid">
+              {t.services.map(service => (
+                <article className="developer-offer" key={service.title}>
+                  <h3>{service.title}</h3>
+                  <p>{service.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="developer-section developer-section-alt" aria-labelledby="developer-audience">
+          <div className="shell developer-split">
+            <div>
+              <p className="eyebrow">{t.audienceTitle}</p>
+              <h2 id="developer-audience">{t.audienceTitle}</h2>
+              <ul className="developer-services">
+                {t.audience.map(item => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
+            <div>
+              <p className="eyebrow">{t.processTitle}</p>
+              <h2 id="developer-process">{t.processTitle}</h2>
+              <ol className="developer-process">
+                {t.process.map((step, index) => (
+                  <li key={step.title}>
+                    <span>0{index + 1}</span>
+                    <div>
+                      <strong>{step.title}</strong>
+                      <p>{step.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section className="developer-close" aria-labelledby="developer-close-title">
+          <div className="shell developer-close-inner">
+            <h2 id="developer-close-title">{t.closeTitle}</h2>
+            <p className="large-copy">{t.closeBody}</p>
+            <div className="shop-actions">
+              <a className="button" href={whatsappLink} target="_blank" rel="noreferrer">{t.cta}<ArrowIcon /></a>
+              <a className="text-link light" href={developerConfig.githubUrl} target="_blank" rel="noreferrer">{t.github}</a>
+              <Link className="text-link light" to="/">{t.back}</Link>
+            </div>
+            <p className="developer-phone" dir="ltr">{developerConfig.whatsapp}</p>
+          </div>
+        </section>
+      </main>
+      <Footer language={language} onLanguage={onLanguage} />
+    </>
+  )
 }
 
 function ShopPage({ language, onLanguage }: { language: Language; onLanguage: () => void }) {
@@ -450,14 +570,17 @@ function AppRoutes() {
   }, [])
 
   useEffect(() => {
-    const isShop = location.pathname === '/shop'
-    const t = isShop ? copy[language].shop.metadata : copy[language].metadata
+    const metadata = location.pathname === '/shop'
+      ? copy[language].shop.metadata
+      : location.pathname === '/developer'
+        ? copy[language].developer.metadata
+        : copy[language].metadata
     document.documentElement.lang = language
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr'
-    document.title = t.title
-    document.querySelector('meta[name="description"]')?.setAttribute('content', t.description)
-    document.querySelector('meta[property="og:title"]')?.setAttribute('content', t.title)
-    document.querySelector('meta[property="og:description"]')?.setAttribute('content', t.description)
+    document.title = metadata.title
+    document.querySelector('meta[name="description"]')?.setAttribute('content', metadata.description)
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', metadata.title)
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', metadata.description)
     document.querySelector('meta[property="og:locale"]')?.setAttribute('content', language === 'ar' ? 'ar_EG' : 'en_GB')
     const schema = document.getElementById('salon-schema')
     if (schema) schema.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BeautySalon', name: local(salonConfig.name, language), description: local(salonConfig.category, language), telephone: salonConfig.phone, email: salonConfig.email, address: { '@type': 'PostalAddress', streetAddress: local(salonConfig.landmark, language), addressLocality: local(salonConfig.location, language), addressCountry: 'EG' }, openingHours: ['Sa-Th 10:00-22:00', 'Fr 13:00-22:00'], sameAs: socialProfiles.map(profile => profile.href).filter(Boolean) })
@@ -470,6 +593,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<HomePage language={language} onLanguage={toggleLanguage} />} />
       <Route path="/shop" element={<ShopPage language={language} onLanguage={toggleLanguage} />} />
+      <Route path="/developer" element={<DeveloperPage language={language} onLanguage={toggleLanguage} />} />
     </Routes>
   )
 }
