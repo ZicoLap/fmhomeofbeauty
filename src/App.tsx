@@ -3,7 +3,7 @@ import type { CSSProperties, SyntheticEvent } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
 import { ArrowIcon, ClockIcon, CloseIcon, FacebookIcon, HouseIcon, InstagramIcon, LocationIcon, MailIcon, MenuIcon, PhoneIcon, ServiceGlyph, SparkleIcon, TikTokIcon } from './components/Icons'
-import { copy, developerConfig, developerWhatsappHref, galleryItems, navigation, salonConfig, services, shopProducts, socialProfiles, whatsappHref, type Language, type ServiceIcon } from './content/salonConfig'
+import { copy, developerConfig, developerWhatsappHref, galleryItems, navigation, salonConfig, services, shopCollections, socialProfiles, whatsappHref, type Language, type ServiceIcon } from './content/salonConfig'
 import './App.css'
 
 const local = <T extends Record<Language, string>>(value: T, language: Language): string => value[language]
@@ -445,6 +445,11 @@ function DeveloperPage({ language, onLanguage }: { language: Language; onLanguag
 
 function ShopPage({ language, onLanguage }: { language: Language; onLanguage: () => void }) {
   const t = copy[language].shop
+  const jumpLabels: Record<(typeof shopCollections)[number]['id'], string> = {
+    care: t.jumpCare,
+    shoes: t.jumpShoes,
+    wigs: t.jumpWigs,
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -464,28 +469,38 @@ function ShopPage({ language, onLanguage }: { language: Language; onLanguage: ()
               <Link className="button" to="/">{t.cta}<ArrowIcon /></Link>
               <a className="text-link light" href={whatsappHref(copy[language].bookingSection.messageIntro)} target="_blank" rel="noreferrer">{copy[language].booking}</a>
             </div>
+            <nav className="shop-jumps" aria-label={t.title}>
+              {shopCollections.map(collection => (
+                <a key={collection.id} href={`#shop-${collection.id}`}>{jumpLabels[collection.id]}</a>
+              ))}
+            </nav>
           </div>
         </section>
         <section className="shop-catalog" aria-label={t.title}>
           <div className="shell">
-            <div className="shop-grid">
-              {shopProducts.map(product => {
-                const name = local(product.name, language)
-                const message = `${t.whatsappMessage}\n${name}`
-                return (
-                  <article className="shop-product" key={product.id}>
-                    <div className="shop-product-media">
-                      <img src={product.src} width="800" height="1000" loading="lazy" alt={local(product.alt, language)} onError={hideBrokenImage} />
-                    </div>
-                    <div className="shop-product-body">
-                      <h2>{name}</h2>
-                      <p>{t.priceNote}</p>
-                      <a className="button button-small" href={whatsappHref(message)} target="_blank" rel="noreferrer">{t.askPrice}<ArrowIcon /></a>
-                    </div>
-                  </article>
-                )
-              })}
-            </div>
+            {shopCollections.map(collection => (
+              <div className="shop-collection" id={`shop-${collection.id}`} key={collection.id}>
+                <h2 className="shop-collection-title">{local(collection.title, language)}</h2>
+                <div className="shop-grid">
+                  {collection.products.map(product => {
+                    const name = local(product.name, language)
+                    const message = `${t.whatsappMessage}\n${name}`
+                    return (
+                      <article className="shop-product" key={product.id}>
+                        <div className="shop-product-media">
+                          <img src={product.src} width="800" height="1000" loading="lazy" alt={local(product.alt, language)} onError={hideBrokenImage} />
+                        </div>
+                        <div className="shop-product-body">
+                          <h3>{name}</h3>
+                          <p>{t.priceNote}</p>
+                          <a className="button button-small" href={whatsappHref(message)} target="_blank" rel="noreferrer">{t.askPrice}<ArrowIcon /></a>
+                        </div>
+                      </article>
+                    )
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       </main>

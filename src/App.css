@@ -238,9 +238,15 @@ h2 { margin-block-end: 22px; font-size: var(--step-2); }
 .shop-product-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .46s var(--ease); }
 .shop-product:hover .shop-product-media img { transform: scale(1.03); }
 .shop-product-body { display: grid; gap: 12px; padding: 18px 18px 20px; }
-.shop-product-body h2 { margin: 0; font-size: 1.05rem; font-weight: 600; line-height: 1.35; }
+.shop-product-body h2, .shop-product-body h3 { margin: 0; font-size: 1.05rem; font-weight: 600; line-height: 1.35; }
 .shop-product-body p { margin: 0; color: #F0DCE4; font-size: .82rem; }
 .shop-product-body .button { justify-self: start; }
+.shop-jumps { display: flex; flex-wrap: wrap; gap: 10px; margin-block-start: 28px; }
+.shop-jumps a { min-height: 40px; display: inline-flex; align-items: center; padding: 8px 14px; border: 1px solid rgba(243, 208, 220, .28); border-radius: 999px; color: #F8E6EE; text-decoration: none; font-size: .78rem; transition: background var(--fast), border-color var(--fast); }
+.shop-jumps a:hover { background: rgba(232, 90, 138, .16); border-color: rgba(232, 90, 138, .45); }
+.shop-collection { margin-block-end: 56px; scroll-margin-top: 96px; }
+.shop-collection:last-child { margin-block-end: 0; }
+.shop-collection-title { margin: 0 0 22px; color: var(--white); font-size: clamp(1.45rem, 2.4vw, 1.9rem); }
 .mobile-booking-bar { position: fixed; z-index: 45; inset-inline: 16px; inset-block-end: calc(12px + env(safe-area-inset-bottom)); min-height: 54px; display: none; align-items: center; justify-content: center; gap: 10px; padding: 12px 20px; color: var(--white); background: var(--pink); border: 1px solid rgba(255, 255, 255, .25); box-shadow: 0 10px 30px rgba(196, 30, 90, .35); text-decoration: none; font-size: .82rem; font-weight: 600; border-radius: 999px; opacity: 0; pointer-events: none; transform: translateY(16px); transition: opacity .24s var(--ease), transform .24s var(--ease); }
 .reveal { opacity: 1; transform: none; }
 .js-ready .reveal { opacity: 0; transform: translateY(16px); transition: opacity var(--medium) var(--ease), transform var(--medium) var(--ease); transition-delay: var(--reveal-delay, 0ms); }
