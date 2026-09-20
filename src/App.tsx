@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, SyntheticEvent } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
 import { ArrowIcon, ClockIcon, CloseIcon, FacebookIcon, HouseIcon, InstagramIcon, LocationIcon, MailIcon, MenuIcon, PhoneIcon, ServiceGlyph, SparkleIcon, TikTokIcon } from './components/Icons'
 import { copy, galleryItems, navigation, salonConfig, services, socialProfiles, whatsappHref, type Language, type ServiceIcon } from './content/salonConfig'
@@ -455,6 +456,7 @@ function App() {
   return (
     <BrowserRouter>
       <AppRoutes />
+      <Analytics />
     </BrowserRouter>
   )
 }
