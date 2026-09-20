@@ -3,7 +3,7 @@ import type { CSSProperties, SyntheticEvent } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import { BrowserRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
 import { ArrowIcon, ClockIcon, CloseIcon, FacebookIcon, HouseIcon, InstagramIcon, LocationIcon, MailIcon, MenuIcon, PhoneIcon, ServiceGlyph, SparkleIcon, TikTokIcon } from './components/Icons'
-import { copy, galleryItems, navigation, salonConfig, services, socialProfiles, whatsappHref, type Language, type ServiceIcon } from './content/salonConfig'
+import { copy, galleryItems, navigation, salonConfig, services, shopProducts, socialProfiles, whatsappHref, type Language, type ServiceIcon } from './content/salonConfig'
 import './App.css'
 
 const local = <T extends Record<Language, string>>(value: T, language: Language): string => value[language]
@@ -343,6 +343,28 @@ function ShopPage({ language, onLanguage }: { language: Language; onLanguage: ()
             <div className="shop-actions">
               <Link className="button" to="/">{t.cta}<ArrowIcon /></Link>
               <a className="text-link light" href={whatsappHref(copy[language].bookingSection.messageIntro)} target="_blank" rel="noreferrer">{copy[language].booking}</a>
+            </div>
+          </div>
+        </section>
+        <section className="shop-catalog" aria-label={t.title}>
+          <div className="shell">
+            <div className="shop-grid">
+              {shopProducts.map(product => {
+                const name = local(product.name, language)
+                const message = `${t.whatsappMessage}\n${name}`
+                return (
+                  <article className="shop-product" key={product.id}>
+                    <div className="shop-product-media">
+                      <img src={product.src} width="800" height="1000" loading="lazy" alt={local(product.alt, language)} onError={hideBrokenImage} />
+                    </div>
+                    <div className="shop-product-body">
+                      <h2>{name}</h2>
+                      <p>{t.priceNote}</p>
+                      <a className="button button-small" href={whatsappHref(message)} target="_blank" rel="noreferrer">{t.askPrice}<ArrowIcon /></a>
+                    </div>
+                  </article>
+                )
+              })}
             </div>
           </div>
         </section>

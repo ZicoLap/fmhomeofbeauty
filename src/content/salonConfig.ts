@@ -78,6 +78,20 @@ export const galleryItems = [
   { src: '/images/work-kids-ponytails.png', width: 720, height: 1280, category: { ar: 'تسريحات أطفال', en: 'Kids styles' }, alt: { ar: 'كورنرو للأطفال مع ذيلين مزخرفين', en: 'Kids cornrows styled into two decorated ponytails' } },
 ] as const
 
+export const shopProducts = [
+  { id: '1', src: '/shop/1.jpeg', name: { ar: 'طلاء أظافر Another Sexy', en: 'Another Sexy nail polish' }, alt: { ar: 'زجاجتا طلاء أظافر بلون بيج وبني', en: 'Two Another Sexy nail polish bottles in beige and brown' } },
+  { id: '2', src: '/shop/2.jpeg', name: { ar: 'ORS Olive Oil شين سبراي', en: 'ORS Olive Oil sheen spray' }, alt: { ar: 'علب سبراي لمعان الشعر ORS بزيت الزيتون', en: 'ORS Olive Oil nourishing sheen spray cans' } },
+  { id: '3', src: '/shop/3.jpeg', name: { ar: 'طقم رولات وتصفيف', en: 'Hair roller styling set' }, alt: { ar: 'طقم رولات ملونة مع مشابك ومشط', en: 'Colourful hair rollers with clips and comb' } },
+  { id: '4', src: '/shop/4.jpeg', name: { ar: 'أدوات تصفيف وعناية', en: 'Styling tools & care set' }, alt: { ar: 'مجموعة أدوات تصفيف الشعر والعناية', en: 'Hair styling tools and care products laid out together' } },
+  { id: '5', src: '/shop/5.jpeg', name: { ar: 'مسحوق تبييض الشعر', en: 'Hair bleaching powder' }, alt: { ar: 'علب مسحوق تبييض الشعر على الرف', en: 'Hair bleaching powder tubs on the shelf' } },
+  { id: '6', src: '/shop/6.jpeg', name: { ar: 'مطور لون 40VOL', en: '40VOL hair developer' }, alt: { ar: 'زجاجات مطور لون الشعر 12% 40VOL', en: 'DLWEL 12% 40VOL hair developer bottles' } },
+  { id: '7', src: '/shop/7.jpeg', name: { ar: 'ماسك SheaMoisture', en: 'SheaMoisture treatment masque' }, alt: { ar: 'برطمانات ماسك زيت الخروع الجامايكي', en: 'SheaMoisture Jamaican Black Castor Oil treatment masque jars' } },
+  { id: '8', src: '/shop/8.jpeg', name: { ar: 'سبراي لاصق للليس', en: 'Lace bond adhesive spray' }, alt: { ar: 'ثلاث زجاجات سبراي لاصق للليس', en: 'Three bottles of lace bond adhesive spray' } },
+  { id: '9', src: '/shop/9.jpeg', name: { ar: 'طقم أمشاط احترافي 10 قطع', en: '10-piece professional comb set' }, alt: { ar: 'طقم أمشاط احترافي أسود من 10 قطع', en: 'Black 10-piece professional comb set' } },
+  { id: '10', src: '/shop/10.jpeg', name: { ar: 'رأس تدريب مع حامل', en: 'Mannequin head with stand' }, alt: { ar: 'رأس تدريب على حامل وردي ثلاثي الأرجل', en: 'Practice mannequin head on a pink tripod stand' } },
+  { id: '11', src: '/shop/11.jpeg', name: { ar: 'حامل وصلات الشعر', en: 'Hair extension organizer stand' }, alt: { ar: 'حامل معدني لتنظيم وصلات الشعر مع مشابك وأمشاط', en: 'Metal hair extension organizer stand with clips and combs' } },
+] as const
+
 export const copy = {
   ar: {
     skip: 'تخطي إلى المحتوى', language: 'EN', booking: 'احجزي موعدك', menuOpen: 'فتح القائمة', menuClose: 'إغلاق القائمة',
@@ -90,7 +104,7 @@ export const copy = {
     bookingSection: { eyebrow: 'تواصلي معنا', title: 'واتساب والبريد', body: 'تواصلي معنا مباشرة عبر واتساب أو البريد الإلكتروني. نرد عليكِ لتأكيد الموعد والتفاصيل.', whatsappLabel: 'واتساب', emailLabel: 'البريد الإلكتروني', submit: 'إرسال الطلب عبر واتساب', messageIntro: 'مرحباً F & M، أرغب في حجز موعد.' },
     contact: { eyebrow: 'القاهرة الجديدة', title: 'زورينا في F & M', locationLabel: 'الموقع', hoursLabel: 'مواعيد العمل', contactLabel: 'التواصل', maps: 'فتح خرائط Google', whatsapp: 'واتساب', instagram: 'إنستغرام', tiktok: 'تيك توك', facebook: 'فيسبوك', email: 'البريد' },
     footer: { description: 'صالون تجميل ومستحضرات في القاهرة الجديدة للشعر، المكياج والعناية باحتراف واهتمام بالتفاصيل.', privacy: 'الخصوصية', rights: 'جميع الحقوق محفوظة.' },
-    shop: { nav: 'المتجر', eyebrow: 'متجر F & M', title: 'قريباً', body: 'نجهّز منتجات تجميل وعناية جديدة لتصل إليكِ قريباً. تابعي الصفحة، وسنعلن عن الإطلاق هنا.', cta: 'العودة إلى الرئيسية', metadata: { title: 'المتجر | F & M Home of Beauty', description: 'متجر F & M Home of Beauty قريباً، مع منتجات تجميل وعناية جديدة.' } },
+    shop: { nav: 'المتجر', eyebrow: 'متجر F & M', title: 'منتجات العناية والتجميل', body: 'اختاري المنتج، وتواصلي معنا عبر واتساب لمعرفة السعر والتوفر.', cta: 'العودة إلى الرئيسية', askPrice: 'اسألي عن السعر عبر واتساب', priceNote: 'الأسعار عبر واتساب', whatsappMessage: 'مرحباً F & M، أرغب في معرفة سعر هذا المنتج:', metadata: { title: 'المتجر | F & M Home of Beauty', description: 'تسوّقي منتجات العناية والتجميل من F & M Home of Beauty واسألي عن السعر عبر واتساب.' } },
     metadata: { title: 'F & M Home of Beauty | صالون تجميل ومستحضرات في القاهرة الجديدة', description: 'قصات، صبغات، مكياج وعناية في التجمع الخامس. اكتشفي F & M Home of Beauty واحجزي استشارتكِ عبر واتساب.' },
   },
   en: {
@@ -104,7 +118,7 @@ export const copy = {
     bookingSection: { eyebrow: 'Get in touch', title: 'WhatsApp and email', body: 'Message us on WhatsApp or email. We will reply to confirm your time and details.', whatsappLabel: 'WhatsApp', emailLabel: 'Email', submit: 'Send request via WhatsApp', messageIntro: 'Hello F & M, I would like to book an appointment.' },
     contact: { eyebrow: 'New Cairo', title: 'Visit F & M', locationLabel: 'Location', hoursLabel: 'Opening hours', contactLabel: 'Contact', maps: 'Open in Google Maps', whatsapp: 'WhatsApp', instagram: 'Instagram', tiktok: 'TikTok', facebook: 'Facebook', email: 'Email' },
     footer: { description: 'A New Cairo home for thoughtful cuts, makeup, cosmetics and professional beauty care.', privacy: 'Privacy', rights: 'All rights reserved.' },
-    shop: { nav: 'Shop', eyebrow: 'F & M shop', title: 'Coming soon', body: 'New beauty products are on the way. This shop will open with a fresh collection — check back here for the launch.', cta: 'Back to the salon', metadata: { title: 'Shop | F & M Home of Beauty', description: 'The F & M Home of Beauty shop is coming soon, with new beauty products.' } },
+    shop: { nav: 'Shop', eyebrow: 'F & M shop', title: 'Beauty products', body: 'Browse the collection, then message us on WhatsApp for price and availability.', cta: 'Back to the salon', askPrice: 'Ask price on WhatsApp', priceNote: 'Price via WhatsApp', whatsappMessage: 'Hello F & M, I would like the price for this product:', metadata: { title: 'Shop | F & M Home of Beauty', description: 'Shop beauty and hair-care products at F & M Home of Beauty. Message us on WhatsApp for pricing.' } },
     metadata: { title: 'F & M Home of Beauty | Salon and Cosmetics in New Cairo', description: 'Cuts, colour, makeup and cosmetics in Fifth Settlement, New Cairo. Explore F & M Home of Beauty and request your appointment through WhatsApp.' },
   },
 } as const
