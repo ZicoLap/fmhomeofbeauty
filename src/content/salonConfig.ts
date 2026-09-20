@@ -83,12 +83,17 @@ export const services = [
 ] as const
 
 export const galleryItems = [
-  { src: '/images/work-knotless-back.png', width: 720, height: 960, category: { ar: 'ضفائر', en: 'Braids' }, alt: { ar: 'ضفائر نوتلس طويلة مموجة من الخلف', en: 'Long knotless braids with curly ends, seen from behind' } },
-  { src: '/images/work-cornrow-side.png', width: 720, height: 960, category: { ar: 'كورنرو', en: 'Cornrows' }, alt: { ar: 'كورنرو جانبي ينتهي بضفائر طويلة مموجة', en: 'Side-swept cornrows flowing into long curly braids' } },
-  { src: '/images/work-feed-in-design.png', width: 720, height: 800, category: { ar: 'تصميم ضفائر', en: 'Braid design' }, alt: { ar: 'تصميم ضفائر فيد إن بنمط أوراق على فروة الرأس', en: 'Feed-in braid design with a leaf pattern on the scalp' } },
-  { src: '/images/work-pink-braids.png', width: 720, height: 800, category: { ar: 'لون وضفائر', en: 'Colour & braids' }, alt: { ar: 'ضفائر وردية غامقة مع مكياج ناعم', en: 'Deep pink box braids with a soft makeup look' } },
-  { src: '/images/work-long-twists.png', width: 720, height: 1280, category: { ar: 'تويست', en: 'Twists' }, alt: { ar: 'تويست أسود طويل مع لمسة نهائية أنيقة', en: 'Long black twists finished with a sleek look' } },
-  { src: '/images/work-kids-ponytails.png', width: 720, height: 1280, category: { ar: 'تسريحات أطفال', en: 'Kids styles' }, alt: { ar: 'كورنرو للأطفال مع ذيلين مزخرفين', en: 'Kids cornrows styled into two decorated ponytails' } },
+  { src: '/images/work-1.jpeg', width: 900, height: 1200, category: { ar: 'كورنرو وتويست', en: 'Cornrows & twists' }, alt: { ar: 'كورنرو جانبي ينتهي بتويست سميك', en: 'Side cornrows flowing into thick kinky twists' } },
+  { src: '/images/work-2.jpeg', width: 900, height: 1200, category: { ar: 'تويست', en: 'Twists' }, alt: { ar: 'تويست أسود بفراقات مربعة نظيفة', en: 'Black two-strand twists with clean square parts' } },
+  { src: '/images/work-3.jpeg', width: 900, height: 1200, category: { ar: 'تسريحات أطفال', en: 'Kids styles' }, alt: { ar: 'تويستات جانبية مع كعكة شعر وفيونكة للأطفال', en: 'Kids flat twists with a full puff and bow' } },
+  { src: '/images/work-4.jpeg', width: 900, height: 1200, category: { ar: 'كورنرو', en: 'Cornrows' }, alt: { ar: 'كورنرو أفقي أنيق للأولاد', en: 'Neat horizontal cornrows for boys' } },
+  { src: '/images/work-5.jpeg', width: 900, height: 1200, category: { ar: 'مايكرو لوكس', en: 'Micro locs' }, alt: { ar: 'مايكرو لوكس قصيرة بفراق جانبي دقيق', en: 'Short micro locs with a precise side part' } },
+  { src: '/images/work-6.jpeg', width: 900, height: 1200, category: { ar: 'ذيل حصان', en: 'Ponytail' }, alt: { ar: 'ذيل حصان لامع مع حواف مصففة', en: 'Sleek high ponytail with laid edges' } },
+  { src: '/images/work-7.jpeg', width: 900, height: 1200, category: { ar: 'تصميم ضفائر', en: 'Braid design' }, alt: { ar: 'كورنرو متماثل ينتهي بكعكة في التاج', en: 'Symmetrical cornrows gathered into a crown bun' } },
+  { src: '/images/work-8.jpeg', width: 900, height: 1200, category: { ar: 'ضفائر نوتلس', en: 'Knotless braids' }, alt: { ar: 'ضفائر نوتلس طويلة بفراقات مربعة دقيقة', en: 'Long knotless braids with precise square parts' } },
+  { src: '/images/work-9.jpeg', width: 900, height: 1200, category: { ar: 'دريد لوكس', en: 'Locs' }, alt: { ar: 'دريد لوكس مع صفوف جانبية وكعكة مزخرفة', en: 'Locs with side rows and a decorated high bun' } },
+  { src: '/images/work-10.jpeg', width: 900, height: 1200, category: { ar: 'بوهو برايدز', en: 'Boho braids' }, alt: { ar: 'ضفائر بوهو طويلة مع تجعيدات ذهبية', en: 'Long boho braids with golden curly ends' } },
+  { src: '/images/work-11.jpeg', width: 900, height: 1200, category: { ar: 'ضفائر وتصميم', en: 'Braids & design' }, alt: { ar: 'ضفائر بوهو مع كورنرو هندسي وحواف مزخرفة', en: 'Boho braids with geometric cornrows and laid edges' } },
 ] as const
 
 export const shopProducts = [
